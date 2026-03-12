@@ -17,34 +17,33 @@ const stars = Array.from({ length: 120 }, (_, index) => ({
 }));
 
 const RootLayout = () => {
-    useEffect(() => {
-        if ("scrollRestoration" in window.history) {
-          window.history.scrollRestoration = "manual";
-        }
-    
-        if (window.location.hash) {
-          window.history.replaceState(
-            null,
-            "",
-            window.location.pathname + window.location.search
-          );
-        }
-    
-        window.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: "instant",
-        });
-      }, []);
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    if (window.location.hash) {
+      window.history.replaceState(
+        null,
+        "",
+        window.location.pathname + window.location.search
+      );
+    }
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, []);
 
   return (
     <div className="relative overflow-hidden bg-black min-h-screen">
       {/* Background Layer (Stars & Glow) */}
       <div className="pointer-events-none absolute inset-0 z-0">
-        <div className="absolute left-[10%] top-[12%] h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
-        <div className="absolute right-[8%] top-[30%] h-80 w-80 rounded-full bg-purple-500/20 blur-3xl" />
-        <div className="absolute bottom-[10%] left-[35%] h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
-
+        <div className="absolute left-[10%] top-[12%] h-40 w-40 md:h-72 md:w-72 rounded-full bg-blue-500/30 blur-3xl" />
+        <div className="absolute right-[8%] top-[30%] h-48 w-48 md:h-80 md:w-80 rounded-full bg-purple-500/30 blur-3xl" />
+        <div className="absolute bottom-[10%] left-[35%] h-56 w-56 md:h-96 md:w-96 rounded-full bg-cyan-400/30 blur-3xl" />
         {stars.map((star) => (
           <span
             key={star.id}
