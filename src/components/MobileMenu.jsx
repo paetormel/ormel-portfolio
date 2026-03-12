@@ -12,7 +12,7 @@ const MobileMenu = ({ setIsMenuOpen }) => {
       animate={{ x: 0 }}
       exit={{ x: "100%" }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="fixed inset-0 z-0 box-border flex flex-col overflow-hidden bg-white/20 p-5 text-white backdrop-blur-3xl"
+      className="fixed inset-0 z-0 box-border flex flex-col overflow-hidden bg-black p-5 text-white "
     >
       <div className="flex justify-between">
         <h2 className="font-semibold uppercase">Ormel</h2>
