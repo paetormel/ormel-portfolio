@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900');
+
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Nighty";
+  src: url("/fonts/NightyDemo.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@theme {
+  --color-black-primary: #0a0d14;
+  --color-black-secondary: #28364e;
+  --color-blue: #556ff7;
+  --font-nighty: "Nighty", serif;
+  --font-andada: "Andada Pro", serif;
+  --font-inter: "Inter", sans-serif;
+  --font-google-sans: "Google Sans", sans-serif;
+  --font-playfair: "Playfair Display", serif;
+}
+
+@layer base{
+  a.active{
+    color: orange;
+  }
+  body{
+    scroll-behavior: smooth;
+  }
+}
+
+
+.star {
+  opacity: 0.7;
+  animation: twinkle infinite ease-in-out, drift 10s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  25% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.95);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-6px) translateX(2px);
+  }
+  50% {
+    transform: translateY(-12px) translateX(-2px);
+  }
+  75% {
+    transform: translateY(-6px) translateX(1px);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+}
