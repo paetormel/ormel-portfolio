@@ -62,7 +62,7 @@ const Home = () => {
           >
             I&apos;m a React Developer passionate about building fast, modern
             web apps. I enjoy learning new tools, writing clean code, and
-            creating intuitive user interfaces with React, Tailwind, and APIs.
+            creating intuitive user interfaces with React, Tailwind, and APIs
           </motion.span>
         </p>
 
