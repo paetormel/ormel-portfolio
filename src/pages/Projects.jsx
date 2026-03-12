@@ -61,7 +61,7 @@ const Projects = () => {
         </motion.h2>
       </div>
 
-      <div className="grid w-full max-w-6xl grid-cols-1 justify-center gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid w-full mx-5 md:mx-10 max-w-6xl grid-cols-1 justify-center gap-6 md:grid-cols-2 xl:grid-cols-3">
         {PROJECTS.map((project) => (
           <ProjectCard
             key={`${project.image}-${project.title ?? project.description.slice(0, 20)}`}

@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="mb-5 flex w-full justify-center px-4 py-20 sm:px-6 md:mb-20 md:min-h-screen md:items-center lg:px-10"
+      className="mb-5 flex w-full justify-center px-4 py-25 sm:px-6 md:mb-20 md:min-h-screen md:items-center lg:px-10"
     >
       <div className="flex w-full max-w-7xl flex-col items-center justify-center text-center text-white">
         <h1 className="mb-10 overflow-hidden text-center font-google-sans text-6xl font-black leading-[0.8] tracking-tighter md:text-[11rem]">

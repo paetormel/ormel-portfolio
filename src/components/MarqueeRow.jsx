@@ -35,7 +35,7 @@ const MarqueeRow = ({ skills, title, direction = "left" }) => {
         }}
       >
         <motion.div
-          className="flex w-max gap-6 md:gap-12"
+          className="flex w-max gap-2 md:gap-12"
           animate={{
             x: direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"],
           }}

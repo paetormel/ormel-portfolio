@@ -2,7 +2,7 @@ import React from 'react'
 
 const ProjectCard = ({description, skills, image}) => {
     return (
-        <div className='w-90 rounded-2xl border border-gray-400/50 hover:border-blue backdrop-blur-5xl bg-white/10 flex duration-300 flex-col justify-between p-10 '>
+        <div className='w-full md:w-90 rounded-2xl border border-gray-400/50 hover:border-blue backdrop-blur-5xl bg-white/10 flex duration-300 flex-col justify-between p-10 '>
         <div className='flex gap-2 mb-5'>
             <div className='w-5 h-5 bg-blue rounded-full'></div>
             <div className='w-5 h-5 bg-blue rounded-full'></div>
