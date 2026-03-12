@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="mb-20 flex min-h-screen w-full items-center justify-center bg-cover bg-center bg-no-repeat px-4 pt-10 sm:px-6 lg:px-10"
+      className="mb-5 flex w-full justify-center px-4 py-20 sm:px-6 md:mb-20 md:min-h-screen md:items-center lg:px-10"
     >
       <div className="flex w-full max-w-7xl flex-col items-center justify-center text-center text-white">
         <h1 className="mb-10 overflow-hidden text-center font-google-sans text-6xl font-black leading-[0.8] tracking-tighter md:text-[11rem]">
@@ -66,12 +66,12 @@ const Home = () => {
           </motion.span>
         </p>
 
-        <div className="flex gap-3">
+        <div className="flex w-full justify-center items-center flex-col gap-3 md:flex-row">
           <Button btnName="Contact Me" url="#contact" variant="blue" />
 
           <a
             href="/resume.pdf"
-            className="group inline-flex cursor-pointer items-center gap-2 rounded-full border border-white px-10 py-2 font-google-sans text-lg text-white shadow-xl transition-colors duration-200 hover:bg-white/10 hover:backdrop-blur-2xl"
+            className="group inline-flex md:w-35 w-full items-center justify-center gap-2 rounded-full border border-white px-10 py-2 text-center font-google-sans text-lg text-white shadow-xl transition-colors duration-200 hover:bg-white/10 hover:backdrop-blur-2xl"
           >
             Resume
           </a>

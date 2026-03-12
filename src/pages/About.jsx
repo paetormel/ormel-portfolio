@@ -6,7 +6,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="mx-auto mb-20 flex min-h-screen w-full max-w-[1440px] flex-col items-center gap-5 px-4 py-16 text-white sm:px-6 lg:px-10 lg:py-20"
+      className="mx-auto mb-10 md:mb-20 flex min-h-screen w-full max-w-[1440px] flex-col items-center gap-5 px-4 py-16 text-white sm:px-6 lg:px-10 lg:py-20"
     >
       <div className="mb-16 overflow-hidden font-google-sans text-6xl font-black leading-[0.8] tracking-tighter md:mb-20 md:text-[11rem]">
         <motion.h2

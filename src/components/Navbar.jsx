@@ -38,7 +38,7 @@ const Navbar = () => {
           <a href="#home">ORMEL</a>
         </p>
 
-        <ul className="flex gap-8 rounded-full  px-15 py-2 text-[14px]">
+        <ul className="hidden gap-8 rounded-full px-15 py-2 text-[14px] md:flex">
           {links.map((link) => (
             <li
               key={link.id}
@@ -48,7 +48,7 @@ const Navbar = () => {
                 {link.label}
               </a>
 
-              <span className="absolute left-0 -bottom-1 h-px w-full origin-right scale-x-0 transition-transform duration-300 ease-in-out group-hover:origin-left group-hover:scale-x-100 bg-white"></span>
+              <span className="absolute left-0 -bottom-1 h-px w-full origin-right scale-x-0 bg-white transition-transform duration-300 ease-in-out group-hover:origin-left group-hover:scale-x-100"></span>
             </li>
           ))}
         </ul>
