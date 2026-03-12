@@ -28,7 +28,7 @@ const Skills = () => {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mb-10 text-center">
+      <div className="relative z-10 text-center">
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -38,7 +38,7 @@ const Skills = () => {
           Capabilities
         </motion.span>
 
-        <div className="mb-16 overflow-hidden px-4 font-google-sans text-6xl font-black leading-[0.8] tracking-tighter md:mb-20 md:text-[11rem]">
+        <div className=" overflow-hidden px-4 font-google-sans text-5xl font-black leading-[0.8] tracking-tighter md:mb-20 md:text-[11rem]">
           <motion.h2
             id="skills-heading"
             initial={{ y: "100%" }}
@@ -49,6 +49,7 @@ const Skills = () => {
           >
             Expertise
           </motion.h2>
+          <span className="mx-auto mt-10 block h-px w-full max-w-80 bg-linear-to-r from-transparent via-white to-transparent"></span>
         </div>
       </div>
 

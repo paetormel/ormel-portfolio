@@ -6,6 +6,7 @@ import Projects from "../pages/Projects";
 import Contact from "../pages/Contact";
 import Skills from "../pages/Skills";
 import ChatBot from "../components/ChatBot";
+import Footer from "../components/Footer";
 
 const stars = Array.from({ length: 120 }, (_, index) => ({
   id: index,
@@ -76,6 +77,7 @@ const RootLayout = () => {
         <Skills />
         <Projects />
         <Contact />
+        <Footer /> 
       </div>
 
       {/* Floating Chatbot Layer */}

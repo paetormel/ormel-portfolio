@@ -15,10 +15,10 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="mb-5 flex w-full justify-center px-4 py-25 sm:px-6 md:mb-20 md:min-h-screen md:items-center lg:px-10"
+      className="mb-5 flex w-full justify-center px-4 py-18 md:py-25 sm:px-6 md:mb-20 md:min-h-screen md:items-center lg:px-10"
     >
-      <div className="flex w-full max-w-7xl flex-col items-center justify-center text-center text-white">
-        <h1 className="mb-10 overflow-hidden text-center font-google-sans text-6xl font-black leading-[0.8] tracking-tighter md:text-[11rem]">
+      <div className="flex w-full max-w-2xl md:max-w-4xl  flex-col items-center justify-center text-center text-white">
+        <h1 className="mb-3 md:mb-10 overflow-hidden text-center font-google-sans text-5xl font-black leading-[0.8] tracking-tighter md:text-[11rem]">
           <span className="block overflow-hidden px-2 pb-2">
             <motion.span
               className="inline-block"
@@ -48,7 +48,7 @@ const Home = () => {
           </span>
         </h1>
 
-        <p className="mb-10 overflow-hidden font-google-sans text-gray-500">
+        <p className="mb-10  overflow-hidden text-sm md:text-lg font-google-sans text-gray-700">
           <motion.span
             className="inline-block"
             initial={{ y: "100%" }}

@@ -11,12 +11,12 @@ const ProjectCard = ({description, skills, image}) => {
             <div className='bg-gray-300 w-full h-40 rounded-2xl '>
             <img src={`${image}`} className='w-full h-full rounded-2xl' />
             </div>
-            <p className='text-white my-5'>{description}</p>
+            <p className='text-white font-source my-5'>{description}</p>
             <div className='flex gap-1 mb-10 flex-wrap'>
                 {
                     skills && skills.map((skill, index)=>(
                         <span key={index} className='bg-white text-gray-900 rounded-2xl px-5 py-1'>
-                            <p className='text-sm font-medium'>{skill}</p>
+                            <p className='text-xs font-medium'>{skill}</p>
                         </span>
                     ))
                 }

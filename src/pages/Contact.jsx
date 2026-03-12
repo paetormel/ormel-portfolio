@@ -5,10 +5,10 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="mx-auto flex min-h-screen w-full max-w-[1440px] flex-col items-center gap-5 px-4 pb-16 sm:px-6 lg:px-10 lg:pb-20"
+      className="mx-auto flex min-h-screen w-full max-w-[1440px] flex-col items-center gap-5 px-4 py-20 pb-16 sm:px-6 lg:px-10 lg:pb-20"
       aria-labelledby="contact-heading"
     >
-      <div className="mb-16 overflow-hidden text-center text-white font-google-sans text-6xl font-black leading-[0.8] tracking-tighter md:mb-20 md:text-[11rem]">
+      <div className="mb-16 overflow-hidden text-center text-white font-google-sans text-5xl font-black leading-[0.8] tracking-tighter md:mb-20 md:text-[11rem]">
         <motion.h2
           id="contact-heading"
           initial={{ y: "100%" }}
@@ -19,6 +19,7 @@ const Contact = () => {
         >
           CONTACT <br /> ME
         </motion.h2>
+        <span className="mx-auto mt-10 block h-px w-full max-w-80 bg-linear-to-r from-transparent via-white to-transparent"></span>
       </div>
 
       <div className="relative flex w-full items-center justify-center">

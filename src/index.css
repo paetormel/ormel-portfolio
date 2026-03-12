@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900');
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900');
 
 @import "tailwindcss";
 
@@ -18,6 +18,7 @@
   --font-inter: "Inter", sans-serif;
   --font-google-sans: "Google Sans", sans-serif;
   --font-playfair: "Playfair Display", serif;
+  --font-source: "Source Serif 4", serif;
 }
 
 @layer base{
