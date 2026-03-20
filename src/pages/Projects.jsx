@@ -5,40 +5,28 @@ import { motion } from "motion/react";
 const PROJECTS = [
   {
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae similique sit incidunt minima vero explicabo sed, impedit possimus eius molestiae.",
-    skills: ["ReactJs", "tailwindcss"],
-    image: "dashboard.png",
+      "A sleek, Spotify-inspired Pomodoro timer designed to boost productivity with customizable focus sessions and integrated task management.",
+    skills: ["ReactJs","Nextjs","tailwindcss"],
+    image: "pomodoro.webp",
+    visitURL: "https://pomodoro-app-orcin-six.vercel.app/",
+    repoURL: "https://github.com/paetormel/Pomodoro-app"
   },
   {
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae similique sit incidunt minima vero explicabo sed, impedit possimus eius molestiae.",
     skills: ["React", "tailwindcss", "React Query", "html"],
-    image: "Arman Chakhalyan.jpg",
+    image: "portfolio.webp",
+    visitURL: "https://ormel-portfolio-het7.vercel.app/",
+    repoURL: "https://github.com/paetormel/ormel-portfolio"
   },
   {
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae similique sit incidunt minima vero explicabo sed, impedit possimus eius molestiae.",
     skills: ["React", "tailwindcss", "html", "axios"],
     image: "download (26).jpg",
-  },
-  {
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae similique sit incidunt minima vero explicabo sed, impedit possimus eius molestiae.",
-    skills: ["React", "tailwindcss", "html", "axios"],
-    image: "Game Store.jpg",
-  },
-  {
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae similique sit incidunt minima vero explicabo sed, impedit possimus eius molestiae.",
-    skills: ["React", "tailwindcss", "html", "axios"],
-    image: "download (25).jpg",
-  },
-  {
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae similique sit incidunt minima vero explicabo sed, impedit possimus eius molestiae.",
-    skills: ["React", "tailwindcss", "html", "axios"],
-    image: "Giulio Cuscito.jpg",
-  },
+    visitURL: "https://pomodoro-app-orcin-six.vercel.app/",
+    repoURL: "https://github.com/paetormel/Pomodoro-app"
+  }
 ];
 
 const Projects = () => {
@@ -69,6 +57,8 @@ const Projects = () => {
             description={project.description}
             skills={project.skills}
             image={project.image}
+            visitURL={project.visitURL}
+            repoUrl={project.repoURL}
           />
         ))}
       </div>
