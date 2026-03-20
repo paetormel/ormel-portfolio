@@ -4,32 +4,11 @@ import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { div } from "motion/react-client";
 import MobileMenu from "./MobileMenu";
+import { links } from "../pages/constant/data";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const links = [
-    {
-      id: "home",
-      label: "Home",
-    },
-    {
-      id: "about",
-      label: "About",
-    },
-    {
-      id: "skills",
-      label: "Skills",
-    },
-    {
-      id: "projects",
-      label: "Projects",
-    },
-    {
-      id: "contact",
-      label: "Contact",
-    },
-  ];
-
+ 
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";

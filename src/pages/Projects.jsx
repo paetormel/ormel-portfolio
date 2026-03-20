@@ -1,33 +1,7 @@
 import React from "react";
 import ProjectCard from "../components/ProjectCard";
 import { motion } from "motion/react";
-
-const PROJECTS = [
-  {
-    description:
-      "A sleek, Spotify-inspired Pomodoro timer designed to boost productivity with customizable focus sessions and integrated task management.",
-    skills: ["ReactJs","Nextjs","tailwindcss"],
-    image: "pomodoro.webp",
-    visitURL: "https://pomodoro-app-orcin-six.vercel.app/",
-    repoURL: "https://github.com/paetormel/Pomodoro-app"
-  },
-  {
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae similique sit incidunt minima vero explicabo sed, impedit possimus eius molestiae.",
-    skills: ["React", "tailwindcss", "React Query", "html"],
-    image: "portfolio.webp",
-    visitURL: "https://ormel-portfolio-het7.vercel.app/",
-    repoURL: "https://github.com/paetormel/ormel-portfolio"
-  },
-  {
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae similique sit incidunt minima vero explicabo sed, impedit possimus eius molestiae.",
-    skills: ["React", "tailwindcss", "html", "axios"],
-    image: "download (26).jpg",
-    visitURL: "https://pomodoro-app-orcin-six.vercel.app/",
-    repoURL: "https://github.com/paetormel/Pomodoro-app"
-  }
-];
+import { PROJECTS } from "./constant/data";
 
 const Projects = () => {
   return (

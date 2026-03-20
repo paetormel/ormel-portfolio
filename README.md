@@ -1,6 +1,6 @@
 # Ormel Portfolio 2.0
 
-A single-page portfolio built with React and Vite. The site presents Ormel's frontend work through a cinematic space-themed layout, animated section reveals, scrolling skill marquees, project cards, and a floating Gemini-powered assistant that answers in Taglish.
+A single-page portfolio built with React and Vite. The site presents Ormel's frontend work through a cinematic space-themed layout, animated section reveals, a modern skills grid, project cards, and a floating Gemini-powered assistant that answers in Taglish.
 
 ## Stack
 
@@ -16,7 +16,7 @@ A single-page portfolio built with React and Vite. The site presents Ormel's fro
 - Fixed navigation with anchor links to each section
 - Full-screen landing hero with animated typography
 - About section with personal intro and portfolio positioning
-- Skills section with looping marquee rows for core tools
+- Skills section with animated card grid for core tools
 - Project gallery cards for featured work
 - Contact form UI for inquiries
 - Floating AI assistant styled as `Orbital Bot`
@@ -84,6 +84,7 @@ src/
   components/   Reusable UI such as Navbar, ProjectCard, ChatBot
   layout/       Root page composition
   pages/        Home, About, Skills, Projects, Contact sections
+  pages/constant Shared data sources (links, skills, projects)
   index.css     Global styles, theme tokens, fonts, animations
 public/
   fonts/        Local font assets
@@ -96,6 +97,7 @@ public/
 - The contact form is currently presentational and does not submit anywhere yet.
 - Some project card content is still placeholder copy and can be replaced with final project details.
 - Social icons and CTA buttons are visible in the UI, but some actions are not wired to external links yet.
+- Skills icons now use Devicon SVG assets loaded from `cdn.jsdelivr.net`.
 
 ## License
 
