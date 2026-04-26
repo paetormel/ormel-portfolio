@@ -5,7 +5,7 @@ import About from "../pages/About";
 import Projects from "../pages/Projects";
 import Contact from "../pages/Contact";
 import Skills from "../pages/Skills";
-import ChatBot from "../components/ChatBot";
+// import ChatBot from "../components/ChatBot";
 import Footer from "../components/Footer";
 
 const stars = Array.from({ length: 120 }, (_, index) => ({
@@ -81,7 +81,7 @@ const RootLayout = () => {
       </div>
 
       {/* Floating Chatbot Layer */}
-      <ChatBot />
+      {/* <ChatBot /> */}
     </div>
   );
 };
