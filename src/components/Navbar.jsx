@@ -48,10 +48,10 @@ const Navbar = () => {
 
         <div className="flex items-center gap-2 md:gap-5">
           <a href="https://github.com/paetormel">
-            <FaGithub className="cursor-pointer  w-5 h-5 md:w-6 md:h-6 hover:text-blue/80 duration-100 transition-colors" />
+            <FaGithub className="cursor-pointer  w-5 h-5 md:w-6 md:h-6 hover:text-[#27c93f] duration-100 transition-colors" />
           </a>
           <a href="https://www.facebook.com/Ormelpaet08/">
-            <FaFacebook className="cursor-pointer w-5 h-5 md:w-6 md:h-6 hover:text-blue/80 duration-300 transition-colors" />
+            <FaFacebook className="cursor-pointer w-5 h-5 md:w-6 md:h-6 hover:text-[#27c93f] duration-300 transition-colors" />
           </a>
           <div
             className="ml-2 block lg:hidden"

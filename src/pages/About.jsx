@@ -1,5 +1,6 @@
 import React from "react";
 import { motion as Motion } from "motion/react";
+import { ArrowRight } from "lucide-react";
 
 const About = () => {
   return (
@@ -50,7 +51,7 @@ const About = () => {
           </Motion.div>
         </div>
 
-        <div className="flex w-full flex-col justify-center font-source lg:w-3/5">
+        <div className="flex w-full flex-col justify-center font-google-sans lg:w-3/5">
           <div className="overflow-hidden">
             <Motion.p
               initial={{ y: "100%" }}
@@ -76,9 +77,10 @@ const About = () => {
           <div className="mt-10 flex items-center justify-center md:justify-start">
             <a
               href="#projects"
-              className="group inline-flex cursor-pointer items-center gap-2 rounded-full border border-white px-10 py-2 font-google-sans text-lg text-white shadow-xl transition-colors duration-200 hover:bg-white/10 hover:backdrop-blur-2xl"
+              className="group inline-flex cursor-pointer items-center gap-2 rounded-xl  px-10 py-2.5 font-google-sans text-sm font-bold text-black shadow-xl transition-colors duration-200 bg-white hover:backdrop-blur-2xl"
             >
               View my work
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
             </a>
           </div>
         </div>
