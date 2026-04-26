@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { motion } from "motion/react";
+import { motion as Motion } from "motion/react";
 import Button from "../components/Button";
 
 const Home = () => {
@@ -20,7 +20,7 @@ const Home = () => {
       <div className="flex w-full max-w-2xl md:max-w-4xl  flex-col items-center justify-center text-center text-white">
         <h1 className="mb-3 md:mb-10 overflow-hidden text-center font-google-sans text-5xl font-black leading-[0.8] tracking-tighter md:text-[11rem]">
           <span className="block overflow-hidden px-2 pb-2">
-            <motion.span
+            <Motion.span
               className="inline-block"
               initial={{ y: "100%" }}
               whileInView={{ y: 0 }}
@@ -28,11 +28,11 @@ const Home = () => {
               viewport={{ once: true }}
             >
               FRONTEND
-            </motion.span>
+            </Motion.span>
           </span>
 
           <span className="block overflow-hidden px-2 pb-2">
-            <motion.span
+            <Motion.span
               className="inline-block"
               initial={{ y: "100%" }}
               whileInView={{ y: 0 }}
@@ -44,12 +44,12 @@ const Home = () => {
               viewport={{ once: true }}
             >
               DEVELOPER
-            </motion.span>
+            </Motion.span>
           </span>
         </h1>
 
         <p className="mb-10  overflow-hidden text-sm md:text-lg font-google-sans text-gray-700">
-          <motion.span
+          <Motion.span
             className="inline-block"
             initial={{ y: "100%" }}
             whileInView={{ y: 0 }}
@@ -63,18 +63,18 @@ const Home = () => {
             I&apos;m a React Developer passionate about building fast, modern
             web apps. I enjoy learning new tools, writing clean code, and
             creating intuitive user interfaces with React, Tailwind, and APIs
-          </motion.span>
+          </Motion.span>
         </p>
 
         <div className="flex w-full justify-center items-center flex-col gap-3 md:flex-row">
           <Button btnName="Contact Me" url="#contact" variant="blue" />
 
-          <a
+          {/* <a
             href="/resume.pdf"
             className="group inline-flex md:w-35 w-full items-center justify-center gap-2 rounded-full border border-white px-10 py-2 text-center font-google-sans text-lg text-white shadow-xl transition-colors duration-200 hover:bg-white/10 hover:backdrop-blur-2xl"
           >
             Resume
-          </a>
+          </a> */}
         </div>
       </div>
     </section>
@@ -82,3 +82,4 @@ const Home = () => {
 };
 
 export default Home;
+

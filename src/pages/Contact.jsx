@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "motion/react";
+import { motion as Motion } from "motion/react";
 
 const Contact = () => {
   return (
@@ -9,7 +9,7 @@ const Contact = () => {
       aria-labelledby="contact-heading"
     >
       <div className="mb-16 overflow-hidden text-center text-white font-google-sans text-5xl font-black leading-[0.8] tracking-tighter md:mb-20 md:text-[11rem]">
-        <motion.h2
+        <Motion.h2
           id="contact-heading"
           initial={{ y: "100%" }}
           whileInView={{ y: 0 }}
@@ -18,7 +18,7 @@ const Contact = () => {
           className="inline-block pb-2"
         >
           CONTACT <br /> ME
-        </motion.h2>
+        </Motion.h2>
         <span className="mx-auto mt-10 block h-px w-full max-w-80 bg-linear-to-r from-transparent via-white to-transparent"></span>
       </div>
 

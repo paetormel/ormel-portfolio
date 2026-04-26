@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaFacebook, FaGithub } from "react-icons/fa";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion as Motion } from "motion/react";
 import { Menu, X } from "lucide-react";
-import { div } from "motion/react-client";
 import MobileMenu from "./MobileMenu";
 import { links } from "../pages/constant/data";
 
@@ -21,7 +20,7 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
   return (
-    <motion.header
+    <Motion.header
       initial={{ opacity: 0, y: -60 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: " easeInOut" }}
@@ -65,8 +64,9 @@ const Navbar = () => {
       <AnimatePresence>
         {isMenuOpen && <MobileMenu setIsMenuOpen={setIsMenuOpen} />}
       </AnimatePresence>
-    </motion.header>
+    </Motion.header>
   );
 };
 
 export default Navbar;
+

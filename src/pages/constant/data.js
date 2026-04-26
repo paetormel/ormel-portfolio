@@ -18,10 +18,10 @@ export const PROJECTS = [
   {
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae similique sit incidunt minima vero explicabo sed, impedit possimus eius molestiae.",
-    skills: ["React", "tailwindcss", "html", "axios"],
-    image: "download (26).jpg",
-    visitURL: "https://pomodoro-app-orcin-six.vercel.app/",
-    repoURL: "https://github.com/paetormel/Pomodoro-app"
+    skills: ["React", "tailwindcss", "axios"],
+    image: "ai-agency.webp",
+    visitURL: "https://ormel-portfolio-het7.vercel.app/",
+    repoURL: "https://github.com/paetormel/ai-agency"
   }
 ];
 

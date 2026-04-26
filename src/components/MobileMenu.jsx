@@ -1,13 +1,13 @@
 import { X } from "lucide-react";
 import React from "react";
-import { motion } from "motion/react";
+import { motion as Motion } from "motion/react";
 import Footer from "./Footer";
 
 const MobileMenu = ({ setIsMenuOpen }) => {
   const handleClose = () => setIsMenuOpen(false);
 
   return (
-    <motion.div
+    <Motion.div
       initial={{ x: "100%" }}
       animate={{ x: 0 }}
       exit={{ x: "100%" }}
@@ -55,7 +55,7 @@ const MobileMenu = ({ setIsMenuOpen }) => {
       </div>
 
       <Footer />
-    </motion.div>
+    </Motion.div>
   );
 };
 

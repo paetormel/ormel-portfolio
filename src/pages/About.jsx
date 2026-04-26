@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "motion/react";
+import { motion as Motion } from "motion/react";
 
 const About = () => {
   return (
@@ -8,7 +8,7 @@ const About = () => {
       className="mx-auto mb-10 md:mb-20 flex min-h-screen w-full max-w-[1440px] flex-col items-center gap-5 px-4 py-16 text-white sm:px-6 lg:px-10 lg:py-20"
     >
       <div className="mb-16 overflow-hidden font-google-sans text-5xl font-black leading-[0.8] tracking-tighter md:mb-20 md:text-[11rem]">
-        <motion.h2
+        <Motion.h2
           initial={{ y: "100%" }}
           whileInView={{ y: 0 }}
           transition={{ duration: 0.9, delay: 0.1, ease: [0.33, 1, 0.68, 1] }}
@@ -16,14 +16,14 @@ const About = () => {
           className="inline-block pb-2"
         >
           ABOUT ME
-        </motion.h2>
+        </Motion.h2>
 
         <span className="mx-auto mt-10 block h-px w-full max-w-80 bg-linear-to-r from-transparent via-white to-transparent"></span>
       </div>
 
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 lg:flex-row lg:items-center lg:gap-12">
         <div className="flex w-full justify-center lg:w-2/5">
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -47,12 +47,12 @@ const About = () => {
               height={288}
               className="absolute opacity-0 group-hover:opacity-100 z-10 h-72 w-72 rounded-2xl object-cover transition-opacity duration-300"
             />
-          </motion.div>
+          </Motion.div>
         </div>
 
         <div className="flex w-full flex-col justify-center font-source lg:w-3/5">
           <div className="overflow-hidden">
-            <motion.p
+            <Motion.p
               initial={{ y: "100%" }}
               whileInView={{ y: 0 }}
               transition={{
@@ -70,12 +70,12 @@ const About = () => {
               <span className="font-bold">backend development</span> to become a
               more well-rounded developer and understand how full web
               applications work from front to back.
-            </motion.p>
+            </Motion.p>
           </div>
 
           <div className="mt-10 flex items-center justify-center md:justify-start">
             <a
-              href="#work"
+              href="#projects"
               className="group inline-flex cursor-pointer items-center gap-2 rounded-full border border-white px-10 py-2 font-google-sans text-lg text-white shadow-xl transition-colors duration-200 hover:bg-white/10 hover:backdrop-blur-2xl"
             >
               View my work
@@ -88,3 +88,4 @@ const About = () => {
 };
 
 export default About;
+

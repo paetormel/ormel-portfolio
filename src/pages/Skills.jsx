@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { ALL_SKILLS } from "./constant/data";
 
 // Pinagsama ang skills at nilagyan ng CDN links para sa icons
@@ -19,17 +19,17 @@ const Skills = () => {
 
       {/* Header Section - No Changes */}
       <div className="relative z-10 text-center">
-        <motion.span
+        <Motion.span
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-6 block text-[10px] font-bold uppercase tracking-[0.6em] text-blue-500"
         >
           Capabilities
-        </motion.span>
+        </Motion.span>
 
         <div className="overflow-hidden px-4 font-google-sans text-5xl font-black leading-[0.8] tracking-tighter md:mb-20 md:text-[11rem]">
-          <motion.h2
+          <Motion.h2
             id="skills-heading"
             initial={{ y: "100%" }}
             whileInView={{ y: 0 }}
@@ -38,7 +38,7 @@ const Skills = () => {
             className="pb-2 uppercase text-white"
           >
             Expertise
-          </motion.h2>
+          </Motion.h2>
           <span className="mx-auto mt-10 block h-px w-full max-w-80 bg-linear-to-r from-transparent via-white to-transparent"></span>
         </div>
       </div>
@@ -47,7 +47,7 @@ const Skills = () => {
       <div className="relative z-10 mx-auto mt-16 w-full max-w-5xl px-4">
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
           {ALL_SKILLS.map((skill, index) => (
-            <motion.div
+            <Motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -76,7 +76,7 @@ const Skills = () => {
               <h3 className="text-sm font-bold tracking-widest text-white/60 group-hover:text-white">
                 {skill.title}
               </h3>
-            </motion.div>
+            </Motion.div>
           ))}
         </div>
       </div>
