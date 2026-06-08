@@ -22,6 +22,14 @@ export const PROJECTS = [
     image: "ai-agency.webp",
     visitURL: "https://ormel-portfolio-het7.vercel.app/",
     repoURL: "https://github.com/paetormel/ai-agency"
+  },
+  {
+    description:
+      `An all-in-one educational platform engineered to eliminate "app fatigue" for students and educators. Instead of constantly switching between fragmented applications for communication, file sharing, and virtual classes, SCConnect consolidates the entire academic experience into a single, cohesive, and high-performance web ecosystem. It seamlessly bridges the gap between structured classroom management, real-time collaboration, and interactive learning..`,
+    skills: ["React", "tailwindcss", "axios"],
+    image: "student-portal.png",
+    visitURL: "https://student-portal-alpha-blush.vercel.app/",
+    repoURL: "https://github.com/paetormel"
   }
 ];
 
