@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import ProjectCard from "../components/ProjectCard";
+import ProjectModal from "../components/ProjectModal";
 import { motion as Motion } from "motion/react";
 import { PROJECTS } from "./constant/data";
 
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
     <section
       id="projects"
@@ -24,18 +27,25 @@ const Projects = () => {
         <span className="mx-auto mt-10 block h-px w-full max-w-80 bg-linear-to-r from-transparent via-white to-transparent"></span>
       </div>
 
-      <div className="grid w-full mx-5 md:mx-10 max-w-6xl grid-cols-1 justify-center gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mx-5 grid w-full max-w-6xl grid-cols-1 justify-center gap-6 md:mx-10 md:grid-cols-2 xl:grid-cols-3">
         {PROJECTS.map((project) => (
           <ProjectCard
-            key={`${project.image}-${project.title ?? project.description.slice(0, 20)}`}
+            key={project.title}
+            title={project.title}
             description={project.description}
             skills={project.skills}
             image={project.image}
             visitURL={project.visitURL}
-            repoUrl={project.repoURL}
+            repoURL={project.repoURL}
+            onViewDetails={() => setSelectedProject(project)}
           />
         ))}
       </div>
+
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </section>
   );
 };

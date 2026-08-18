@@ -1,7 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { motion as Motion } from "motion/react";
 
+const INITIAL_FORM = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  message: "",
+};
+
 const Contact = () => {
+  const [formData, setFormData] = useState(INITIAL_FORM);
+  const [status, setStatus] = useState("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!formData.message.trim()) {
+      setStatus("error");
+      setErrorMessage("Please enter a message before submitting.");
+      return;
+    }
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus("error");
+      setErrorMessage(
+        "Email service is not configured yet. Add your EmailJS keys to the .env file.",
+      );
+      return;
+    }
+
+    setStatus("sending");
+    setErrorMessage("");
+
+    const fullName = [formData.firstName, formData.lastName]
+      .map((part) => part.trim())
+      .filter(Boolean)
+      .join(" ");
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: fullName || "Portfolio visitor",
+          reply_to: formData.email.trim() || "No reply email provided",
+          message: formData.message.trim(),
+        },
+        { publicKey },
+      );
+
+      setStatus("success");
+      setFormData(INITIAL_FORM);
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setStatus("error");
+      setErrorMessage(
+        "Something went wrong while sending your message. Please try again in a moment.",
+      );
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -24,6 +93,7 @@ const Contact = () => {
 
       <div className="relative flex w-full items-center justify-center">
         <form
+          onSubmit={handleSubmit}
           className="flex w-full max-w-2xl flex-col rounded-2xl border border-white/20 bg-white/5 p-6 text-white backdrop-blur-2xl sm:p-8 lg:p-10"
           noValidate
         >
@@ -37,7 +107,10 @@ const Contact = () => {
                 name="firstName"
                 type="text"
                 autoComplete="given-name"
-                className="border-b border-white/40 bg-transparent pb-2 text-white outline-none transition duration-300 focus:border-white focus-visible:border-white"
+                value={formData.firstName}
+                onChange={handleChange}
+                disabled={status === "sending"}
+                className="border-b border-white/40 bg-transparent pb-2 text-white outline-none transition duration-300 focus:border-white focus-visible:border-white disabled:opacity-60"
               />
             </div>
 
@@ -50,7 +123,10 @@ const Contact = () => {
                 name="lastName"
                 type="text"
                 autoComplete="family-name"
-                className="border-b border-white/40 bg-transparent pb-2 text-white outline-none transition duration-300 focus:border-white focus-visible:border-white"
+                value={formData.lastName}
+                onChange={handleChange}
+                disabled={status === "sending"}
+                className="border-b border-white/40 bg-transparent pb-2 text-white outline-none transition duration-300 focus:border-white focus-visible:border-white disabled:opacity-60"
               />
             </div>
           </div>
@@ -64,7 +140,10 @@ const Contact = () => {
               name="email"
               type="email"
               autoComplete="email"
-              className="border-b border-white/40 bg-transparent pb-2 text-white outline-none transition duration-300 focus:border-white focus-visible:border-white"
+              value={formData.email}
+              onChange={handleChange}
+              disabled={status === "sending"}
+              className="border-b border-white/40 bg-transparent pb-2 text-white outline-none transition duration-300 focus:border-white focus-visible:border-white disabled:opacity-60"
             />
           </div>
 
@@ -76,15 +155,37 @@ const Contact = () => {
               id="message"
               name="message"
               required
-              className="h-60 resize-none border-b border-white/40 bg-transparent pb-2 text-white outline-none transition duration-300 focus:border-white focus-visible:border-white"
+              value={formData.message}
+              onChange={handleChange}
+              disabled={status === "sending"}
+              className="h-60 resize-none border-b border-white/40 bg-transparent pb-2 text-white outline-none transition duration-300 focus:border-white focus-visible:border-white disabled:opacity-60"
             />
           </div>
 
+          {status === "success" && (
+            <p
+              role="status"
+              className="mb-5 rounded-xl border border-emerald-400/40 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-200"
+            >
+              Message sent successfully. I&apos;ll get back to you soon.
+            </p>
+          )}
+
+          {status === "error" && errorMessage && (
+            <p
+              role="alert"
+              className="mb-5 rounded-xl border border-red-400/40 bg-red-500/10 px-4 py-3 text-sm text-red-200"
+            >
+              {errorMessage}
+            </p>
+          )}
+
           <button
             type="submit"
-            className="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-white bg-white px-10 py-2 font-google-sans text-lg text-black shadow-xl transition-colors duration-200 hover:bg-transparent hover:text-white"
+            disabled={status === "sending"}
+            className="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-white bg-white px-10 py-2 font-google-sans text-lg text-black shadow-xl transition-colors duration-200 hover:bg-transparent hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
           >
-            Submit
+            {status === "sending" ? "Sending..." : "Submit"}
           </button>
         </form>
       </div>

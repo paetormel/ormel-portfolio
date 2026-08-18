@@ -45,7 +45,7 @@ const Skills = () => {
 
       {/* Modern Grid Layout (4 Columns Desktop) */}
       <div className="relative z-10 mx-auto mt-16 w-full max-w-5xl px-4">
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 md:gap-6">
           {ALL_SKILLS.map((skill, index) => (
             <Motion.div
               key={index}
