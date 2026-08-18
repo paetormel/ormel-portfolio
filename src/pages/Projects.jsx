@@ -3,42 +3,52 @@ import ProjectCard from "../components/ProjectCard";
 import ProjectModal from "../components/ProjectModal";
 import { motion as Motion } from "motion/react";
 import { PROJECTS } from "./constant/data";
+import { useMotionConfig } from "../utils/motion";
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const { fadeUp, fadeIn } = useMotionConfig();
 
   return (
     <section
       id="projects"
-      className="mx-auto mb-24 flex min-h-screen w-full max-w-[1440px] flex-col items-center gap-5 px-4 sm:px-6 lg:mb-32 lg:px-10"
+      className="scroll-mt-24 mx-auto flex w-full max-w-6xl flex-col items-center px-4 py-20 sm:px-6 md:py-28 lg:px-10"
       aria-labelledby="projects-heading"
     >
-      <div className="mt-16 mb-16 overflow-hidden px-4 font-google-sans text-5xl font-black leading-[0.8] tracking-tighter md:mt-20 md:mb-20 md:text-[11rem]">
+      <div className="mb-12 w-full text-center md:mb-16">
         <Motion.h2
           id="projects-heading"
-          initial={{ y: "100%" }}
-          whileInView={{ y: 0 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          viewport={{ once: true }}
-          className="pb-2 uppercase text-white"
+          {...fadeUp(0.1)}
+          className="section-heading pb-1 uppercase"
         >
           Projects
         </Motion.h2>
-        <span className="mx-auto mt-10 block h-px w-full max-w-80 bg-linear-to-r from-transparent via-white to-transparent"></span>
+        <span className="section-divider" />
+
+        <Motion.p
+          {...fadeUp(0.15)}
+          className="mx-auto mt-6 max-w-2xl font-google-sans text-sm leading-relaxed text-white/50 sm:text-base"
+        >
+          Each project started from a concrete problem and shipped as a working
+          application. Open any card for context, implementation details, and
+          source code.
+        </Motion.p>
       </div>
 
-      <div className="mx-5 grid w-full max-w-6xl grid-cols-1 justify-center gap-6 md:mx-10 md:grid-cols-2 xl:grid-cols-3">
-        {PROJECTS.map((project) => (
-          <ProjectCard
-            key={project.title}
-            title={project.title}
-            description={project.description}
-            skills={project.skills}
-            image={project.image}
-            visitURL={project.visitURL}
-            repoURL={project.repoURL}
-            onViewDetails={() => setSelectedProject(project)}
-          />
+      <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+        {PROJECTS.map((project, index) => (
+          <Motion.div key={project.title} {...fadeIn(index * 0.08)}>
+            <ProjectCard
+              title={project.title}
+              summary={project.summary}
+              problem={project.problem}
+              skills={project.skills}
+              image={project.image}
+              visitURL={project.visitURL}
+              repoURL={project.repoURL}
+              onViewDetails={() => setSelectedProject(project)}
+            />
+          </Motion.div>
         ))}
       </div>
 

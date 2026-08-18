@@ -1,80 +1,94 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
-import { FiExternalLink } from "react-icons/fi";
+import { FiArrowUpRight } from "react-icons/fi";
 
 const ProjectCard = ({
   title,
-  description,
+  summary,
+  problem,
   skills,
   image,
   visitURL,
   repoURL,
   onViewDetails,
 }) => {
-  return (
-    <div className="group flex w-full flex-col justify-between rounded-4xl border border-white/10 bg-[#282828]/40 p-8 shadow-2xl backdrop-blur-3xl duration-300 hover:border-[#1DB954]/50 md:w-90">
-      <div className="mb-6 flex gap-2">
-        <div className="h-3 w-3 rounded-full bg-[#ff5f56]"></div>
-        <div className="h-3 w-3 rounded-full bg-[#ffbd2e]"></div>
-        <div className="h-3 w-3 rounded-full bg-[#27c93f]"></div>
-      </div>
+  const stackPreview = skills?.slice(0, 3).join(" · ");
 
+  return (
+    <article className="group glass-card flex h-full w-full flex-col overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-2xl hover:shadow-blue/5">
       <button
         type="button"
         onClick={onViewDetails}
-        className="relative h-44 w-full cursor-pointer overflow-hidden rounded-2xl bg-white/5 text-left"
-        aria-label={`View details for ${title}`}
+        className="relative h-48 w-full cursor-pointer overflow-hidden bg-white/5 text-left sm:h-52"
+        aria-label={`Open details for ${title}`}
       >
         <img
           src={image}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           alt={title}
+          loading="lazy"
         />
-        <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <span className="rounded-full border border-white/20 bg-black/50 px-4 py-1.5 font-google-sans text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm">
-            View Details
-          </span>
+        <div className="absolute inset-0 bg-linear-to-t from-black-primary/90 via-black-primary/20 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 p-5">
+          <p className="mb-1 font-google-sans text-lg font-bold text-white">
+            {title}
+          </p>
+          <p className="line-clamp-1 text-xs uppercase tracking-widest text-white/45">
+            {stackPreview}
+          </p>
         </div>
       </button>
 
-      <p className="my-6 line-clamp-3 font-source text-sm leading-relaxed text-white/70">
-        {description}
-      </p>
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <p className="mb-2 font-google-sans text-xs font-bold uppercase tracking-wider text-white/40">
+          Problem
+        </p>
+        <p className="mb-4 line-clamp-2 flex-1 font-source text-sm leading-relaxed text-white/60">
+          {problem}
+        </p>
+        <p className="mb-6 line-clamp-1 font-source text-xs text-white/40">
+          {summary}
+        </p>
 
-      <div className="mb-8 flex flex-wrap gap-2">
-        {skills?.map((skill) => (
-          <span
-            key={skill}
-            className="rounded-full border border-white/10 bg-white/5 px-4 py-1 text-white/60 transition-colors hover:bg-[#1DB954]/10 hover:text-[#1DB954]"
+        <div className="flex items-center justify-between border-t border-white/10 pt-4">
+          <button
+            type="button"
+            onClick={onViewDetails}
+            className="inline-flex cursor-pointer items-center gap-1.5 font-google-sans text-xs font-bold uppercase tracking-wider text-white/70 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50"
           >
-            <p className="text-[10px] font-bold uppercase tracking-wider">
-              {skill}
-            </p>
-          </span>
-        ))}
-      </div>
+            View details
+            <FiArrowUpRight
+              size={14}
+              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </button>
 
-      <div className="flex gap-3">
-        <a
-          href={visitURL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-white py-2.5 text-sm font-bold text-black shadow-xl transition-all duration-300 hover:bg-[#1DB954] hover:text-white"
-        >
-          Visit <FiExternalLink size={16} />
-        </a>
+          <div className="relative z-10 flex items-center gap-1">
+            <a
+              href={visitURL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full text-white/50 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50"
+              title="Visit live site"
+              aria-label={`Visit ${title} live site`}
+            >
+              <FiArrowUpRight size={16} />
+            </a>
 
-        <a
-          href={repoURL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-[#181818] px-4 py-2.5 text-sm font-bold text-white transition-all duration-300 hover:bg-white/10"
-          title="Source Code"
-        >
-          <FaGithub size={20} />
-        </a>
+            <a
+              href={repoURL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full text-white/50 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50"
+              title="Source code"
+              aria-label={`View ${title} source code on GitHub`}
+            >
+              <FaGithub size={16} />
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
+    </article>
   );
 };
 

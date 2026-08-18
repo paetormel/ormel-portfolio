@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion as Motion } from "motion/react";
+import { FiSend } from "react-icons/fi";
 
 const INITIAL_FORM = {
   firstName: "",
@@ -8,6 +9,9 @@ const INITIAL_FORM = {
   email: "",
   message: "",
 };
+
+const inputClass =
+  "w-full border-b border-white/20 bg-transparent pb-2.5 text-white outline-none transition-colors duration-300 placeholder:text-white/30 focus:border-white disabled:cursor-not-allowed disabled:opacity-50";
 
 const Contact = () => {
   const [formData, setFormData] = useState(INITIAL_FORM);
@@ -74,32 +78,38 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="mx-auto flex min-h-screen w-full max-w-[1440px] flex-col items-center gap-5 px-4 py-20 pb-16 sm:px-6 lg:px-10 lg:pb-20"
+      className="scroll-mt-24 mx-auto flex w-full max-w-6xl flex-col items-center px-4 py-20 sm:px-6 md:py-28 lg:px-10"
       aria-labelledby="contact-heading"
     >
-      <div className="mb-16 overflow-hidden text-center text-white font-google-sans text-5xl font-black leading-[0.8] tracking-tighter md:mb-20 md:text-[11rem]">
+      <div className="mb-12 w-full text-center md:mb-16">
         <Motion.h2
           id="contact-heading"
-          initial={{ y: "100%" }}
-          whileInView={{ y: 0 }}
-          transition={{ duration: 0.9, delay: 0.1, ease: [0.33, 1, 0.68, 1] }}
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
           viewport={{ once: true }}
-          className="inline-block pb-2"
+          className="section-heading pb-1"
         >
-          CONTACT <br /> ME
+          CONTACT <span className="block sm:inline">ME</span>
         </Motion.h2>
-        <span className="mx-auto mt-10 block h-px w-full max-w-80 bg-linear-to-r from-transparent via-white to-transparent"></span>
+        <span className="section-divider" />
       </div>
 
-      <div className="relative flex w-full items-center justify-center">
+      <Motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
+        viewport={{ once: true }}
+        className="w-full max-w-2xl"
+      >
         <form
           onSubmit={handleSubmit}
-          className="flex w-full max-w-2xl flex-col rounded-2xl border border-white/20 bg-white/5 p-6 text-white backdrop-blur-2xl sm:p-8 lg:p-10"
+          className="glass-card flex w-full flex-col p-6 sm:p-8 lg:p-10"
           noValidate
         >
           <div className="mb-5 flex flex-col gap-5 md:flex-row">
             <div className="flex w-full flex-col md:w-1/2">
-              <label htmlFor="firstName" className="mb-3">
+              <label htmlFor="firstName" className="mb-2 text-sm text-white/70">
                 First Name
               </label>
               <input
@@ -110,12 +120,12 @@ const Contact = () => {
                 value={formData.firstName}
                 onChange={handleChange}
                 disabled={status === "sending"}
-                className="border-b border-white/40 bg-transparent pb-2 text-white outline-none transition duration-300 focus:border-white focus-visible:border-white disabled:opacity-60"
+                className={inputClass}
               />
             </div>
 
             <div className="flex w-full flex-col md:w-1/2">
-              <label htmlFor="lastName" className="mb-3">
+              <label htmlFor="lastName" className="mb-2 text-sm text-white/70">
                 Last Name
               </label>
               <input
@@ -126,13 +136,13 @@ const Contact = () => {
                 value={formData.lastName}
                 onChange={handleChange}
                 disabled={status === "sending"}
-                className="border-b border-white/40 bg-transparent pb-2 text-white outline-none transition duration-300 focus:border-white focus-visible:border-white disabled:opacity-60"
+                className={inputClass}
               />
             </div>
           </div>
 
           <div className="mb-5 flex flex-col">
-            <label htmlFor="email" className="mb-3">
+            <label htmlFor="email" className="mb-2 text-sm text-white/70">
               Email (optional)
             </label>
             <input
@@ -143,29 +153,30 @@ const Contact = () => {
               value={formData.email}
               onChange={handleChange}
               disabled={status === "sending"}
-              className="border-b border-white/40 bg-transparent pb-2 text-white outline-none transition duration-300 focus:border-white focus-visible:border-white disabled:opacity-60"
+              className={inputClass}
             />
           </div>
 
-          <div className="mb-10 flex flex-col">
-            <label htmlFor="message" className="mb-3">
+          <div className="mb-8 flex flex-col">
+            <label htmlFor="message" className="mb-2 text-sm text-white/70">
               Message (Required)
             </label>
             <textarea
               id="message"
               name="message"
               required
+              rows={6}
               value={formData.message}
               onChange={handleChange}
               disabled={status === "sending"}
-              className="h-60 resize-none border-b border-white/40 bg-transparent pb-2 text-white outline-none transition duration-300 focus:border-white focus-visible:border-white disabled:opacity-60"
+              className={`${inputClass} min-h-[9rem] resize-y`}
             />
           </div>
 
           {status === "success" && (
             <p
               role="status"
-              className="mb-5 rounded-xl border border-emerald-400/40 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-200"
+              className="mb-5 rounded-xl border border-emerald-400/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-200"
             >
               Message sent successfully. I&apos;ll get back to you soon.
             </p>
@@ -174,7 +185,7 @@ const Contact = () => {
           {status === "error" && errorMessage && (
             <p
               role="alert"
-              className="mb-5 rounded-xl border border-red-400/40 bg-red-500/10 px-4 py-3 text-sm text-red-200"
+              className="mb-5 rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-sm text-red-200"
             >
               {errorMessage}
             </p>
@@ -183,12 +194,16 @@ const Contact = () => {
           <button
             type="submit"
             disabled={status === "sending"}
-            className="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-white bg-white px-10 py-2 font-google-sans text-lg text-black shadow-xl transition-colors duration-200 hover:bg-transparent hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
+            className="group inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-white bg-white px-8 py-3 font-google-sans text-base font-bold text-black shadow-lg transition-all duration-300 hover:bg-transparent hover:text-white disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto sm:self-start"
           >
             {status === "sending" ? "Sending..." : "Submit"}
+            <FiSend
+              size={16}
+              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
           </button>
         </form>
-      </div>
+      </Motion.div>
     </section>
   );
 };
